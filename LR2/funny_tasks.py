@@ -1,6 +1,8 @@
 """
     Very funny indeed
 """
+
+
 from random import randint as ran
 import sys
 import time
@@ -15,11 +17,9 @@ from sympy import (symbols,
                    tan as taen)
 
 
-#just to pause the code processing, and to separate tasks
-def pause():
+def pause() -> None:
     input("--------------\ncontinue...")
     print("--------------")
-
 
 """
 Задано запис таблиці істинності з трьома вхідними значеннями x1-x3.\n
@@ -100,9 +100,9 @@ pause()
     підрахуйте і виведіть скільки бітів та байтів займає число.
 """
 
-b_date = 14062007
-b_date_bin = 0b110101101001000110110111
-b_date_hex = 0xd691b7
+b_date = 20070614
+b_date_bin = bin(b_date)
+b_date_hex = hex(b_date)
 
 print(f"""
 Завдання 3:
@@ -178,8 +178,8 @@ pause()
     виведіть різницю між двома результатами.
 """
 
-fresult = 1 / (1.00000000001 - 1.00000000000)
-dresult = Decimal(1) / (Decimal(1.00000000001) - Decimal(1.00000000000))
+fresult = 1.0 / (1.00000000001 - 1.00000000000)
+dresult = Decimal("1.0") / (Decimal("1.00000000001") - Decimal("1.00000000000"))
 print(f"""
 Завдання 7:
     float result: {fresult};
@@ -206,7 +206,7 @@ x = int(input("x>>> "))
 y = int(input("y>>> "))
 z = int(input("z>>> "))
 
-result = sin(x**2) + 3*cos(2*x + log(z)) - 14*(x**2 + y**2)
+result = sin(x**2) + 3*cos(2*x + log(z)) - 14*(pow(x,2) + pow(y,2))
 
 print(f"""
 Завдання 8:
