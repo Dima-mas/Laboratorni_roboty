@@ -96,7 +96,7 @@ def generate(low:int=2,upp:int=7,sp:int=2) -> str:
                    + ran.choices(UPP_CHAR, k=upp) 
                    + ran.choices(SPC_CHAR, k=sp))
     ran.shuffle(notpassword)
-    return f"Password: {''.join(notpassword)}"
+    return "".join(notpassword)
 
 print("Завдання 3:")
 print("Маслов Дмитро Сергійович, КБ-108, 2025. Варіант 20")
@@ -109,7 +109,7 @@ u, l, s = (
     int(input("Введіть кількість спеціальних символів !@#$%^&*_- в паролі: ")
         or 2)
 )
-print(generate(low=l, upp=u, sp=s))
+print(f"Password: {generate(low=l, upp=u, sp=s)}")
 
 pause()
 
@@ -129,7 +129,8 @@ pause()
 """
 
 def info(files:list) -> None:
-    print(f"Початковий каталог:\n{files};")
+    a = '\n'
+    print(f"Початковий каталог:\n{''.join(files)};")
     print(f"В каталозі {len(files)} файлів;") # №1
     a = [file for file in files if "dll" in file.lower()]
     print(f"{len(a)} - з розширенням dll;") #№2
@@ -213,6 +214,10 @@ def bmp_info(path):
             int.from_bytes(header[46:50], "little"),
             int.from_bytes(header[50:54], "little")
          )
+        sis = int.from_bytes(header[54:1078], "little")
+        print(sis)
+        bro = int.from_bytes(header[1078:], "big")
+        print(bro)
 
 
     print("BitMapFileHeader:")
@@ -238,6 +243,6 @@ ColorsImportant: {ColorsImportant}
           """)
 
 
-bmp_info("LR3/bmp_20.bmp")
+bmp_info("LR3/image.bmp")
 
 print("HOORAAAAAAAY")

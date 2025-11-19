@@ -59,8 +59,8 @@ print(summae)
 print("\ne. Суму всіх непарних чисел кратних 3 між а та b (включно):")
 summao = 0
 for el in range(a+1):
-    beven = [el for el in range(b+1) if el%2 and el%3]
-    summao += (sum(beven) + el*len(beven)) if el%2 and el%3 else 0
+    beven = [el for el in range(b+1) if el%2 and not el%3]
+    summao += (sum(beven) + el*len(beven)) if el%2 and not el%3 else 0
 print(summao)
 
 
@@ -209,18 +209,18 @@ print(decipher(text, a, b))
 pause(5)
 
 hashpass = "d29896ef28a3cb46d4fbd6a048a4910bd9779a48574173c9d54a0b4253e85a8c"
-chars = low+dig
-# for s1 in chars:
-#     for s2 in chars:
-#         for s3 in chars:
-#             for s4 in chars:
-#                 for s5 in chars:
-#                     for s6 in chars:
-#                         psw = s1 + s2 + s3 + s4 + s5 + s6
-#                         generated_hash = hashlib.sha256(psw.encode()).hexdigest()
-#                         if generated_hash == hashpass:
-#                             print(f'Пароль знайдено: {psw}')
-#                             break
+chars = dig+low
+for s1 in chars:
+    for s2 in chars:
+        for s3 in chars:
+            for s4 in chars:
+                for s5 in chars:
+                    for s6 in chars:
+                        psw = s1 + s2 + s3 + s4 + s5 + s6
+                        generated_hash = hashlib.sha256(psw.encode()).hexdigest()
+                        if generated_hash == hashpass:
+                            print(f'Пароль знайдено: {psw}')
+                            break
 print("Пароль: 43palx")
 
 
